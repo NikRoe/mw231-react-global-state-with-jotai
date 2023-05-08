@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import Button from "../Button";
-import { useAtom } from "jotai";
-import { currentLights } from "../../store/lights";
+import { useLights } from "../../hooks/useLights";
 
 const StyledQuickActions = styled.div`
   display: flex;
@@ -10,23 +9,7 @@ const StyledQuickActions = styled.div`
 `;
 
 export default function QuickActions() {
-  const [lights, setLights] = useAtom(currentLights);
-
-  function handleLightOff() {
-    setLights(
-      lights.map((light) => {
-        return { ...light, isOn: false };
-      })
-    );
-  }
-
-  function handleLightOn() {
-    setLights(
-      lights.map((light) => {
-        return { ...light, isOn: true };
-      })
-    );
-  }
+  const { handleLightOff, handleLightOn } = useLights();
 
   return (
     <StyledQuickActions>

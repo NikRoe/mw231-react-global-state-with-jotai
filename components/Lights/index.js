@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import Light from "../Light";
-import { useAtom } from "jotai";
-import { currentLights } from "../../store/lights";
+import { useLights } from "../../hooks/useLights";
 
 const StyledLights = styled.ul`
   list-style-type: none;
@@ -14,14 +13,14 @@ const StyledLights = styled.ul`
 `;
 
 export default function Lights() {
-  const [lights] = useAtom(currentLights);
+  const { lights } = useLights();
 
   return (
     <StyledLights>
       {lights.map((light) => {
         return (
           <li key={light.id}>
-            <Light name={light.name} />
+            <Light name={light.name} id={light.id} isOn={light.isOn} />
           </li>
         );
       })}

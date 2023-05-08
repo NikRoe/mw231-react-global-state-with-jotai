@@ -1,11 +1,8 @@
 import Link from "../components/Link";
-import { useAtom } from "jotai";
-import { currentLights } from "../store/lights";
+import { useLights } from "../hooks/useLights";
 
 export default function HomePage() {
-  const [lights] = useAtom(currentLights);
-
-  const activeLights = lights.filter((light) => light.isOn === true).length;
+  const { activeLights } = useLights();
 
   return (
     <div>
