@@ -21,7 +21,7 @@ export default function Lights() {
       {lights.map((light) => {
         return (
           <li key={light.id}>
-            <Light name={light.name} />
+            <Light name={light.name} id={light.id} isOn={light.isOn} />
           </li>
         );
       })}

@@ -1,12 +1,9 @@
-import { useState } from "react";
 import { LightButton, Icon, Text, Name, State } from "./Light.styled";
 import { useAtom } from "jotai";
 import { currentLights } from "../../store/lights";
 
-export default function Light({ name }) {
+export default function Light({ name, id, isOn }) {
   const [lights, setLights] = useAtom(currentLights);
-
-  const { id, isOn } = lights.find((light) => light.name === name);
 
   function handleToggle(id) {
     setLights(
