@@ -1,6 +1,6 @@
-import { atom } from "jotai";
+import { atomWithStorage } from "jotai/utils";
 
-export const currentLights = atom([
+export const currentLights = atomWithStorage("lights", [
   { id: 1, name: "Living Room", isOn: false },
   { id: 2, name: "Kitchen", isOn: false },
   { id: 3, name: "Bedrom", isOn: false },
